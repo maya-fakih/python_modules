@@ -2,9 +2,9 @@
 Welcome to your digital backyard! This project is a cozy, beginner-friendly module designed to help you learn the "seeds" of Python programming. Instead of boring math problems, we’re going to manage a garden inventory together.
 
 
-        _(_)_                          🌿
-       (_)@(_)   Ready to grow?       /
-         (_)\      Let's code!    ___|___
+        _(_)_                         🌿
+       (_)@(_)   Ready to grow?      /
+         (_)\                    ___|___
           |/                    |       |
           |                     |_______|
     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
