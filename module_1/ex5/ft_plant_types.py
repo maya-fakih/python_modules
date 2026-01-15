@@ -90,7 +90,6 @@ class Tree(Plant):
         self._diameter = diameter
 
     def get_info(self):
-        super().get_info()
         n = self._name
         h = self._height
         a = self._age
@@ -109,7 +108,6 @@ class Vegetable(Plant):
         self._harvest = harvest
 
     def get_info(self):
-        super().get_info()
         n = self._name
         h = self._height
         a = self._age
