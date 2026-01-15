@@ -6,11 +6,14 @@ class Plant:
 
     def grow_plant(self, height):
         self.height += height
+
     def age_plant(self, days):
         self.age += days
+
     def get_info(self):
         return f"{self.name}: {self.height} cm, {self.age} days old"
-    
+
+
 def ft_plant_growth():
     plant = Plant(name="tomato", height=30.0, age=20)
     print(plant.get_info())
@@ -20,6 +23,7 @@ def ft_plant_growth():
     plant.age_plant(age)
     print("Updated plant info:")
     print(plant.get_info())
-    
+
+
 if __name__ == "__main__":
     ft_plant_growth()

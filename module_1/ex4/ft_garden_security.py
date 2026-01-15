@@ -1,40 +1,39 @@
 class Plant:
     def __init__(self, name: str, height: float, age: int):
-        
-        if(self.validate_plant(height, age) == True):
+        if (self.validate_plant(height, age) is True):
             self.__name = name
             self.__height = height     # in centimeters
             self.__age = age           # in days
-        
-    def validate_plant(self, height : float, age: int):
-        if(height < 0 or age < 0):
-            if(height < 0):
-                print(f"Invalid operation attempted: height {height}cm [REJECTED]")
-                print(f"Security: Negative hight rejected")
-            if(age < 0):
-                print(f"Invalid operation attempted: age {age} days [REJECTED]")
-                print(f"Security: Negative age rejected")
 
+    def validate_plant(self, height: float, age: int):
+        if (height < 0 or age < 0):
+            if (height < 0):
+                h = height
+                print(f"Invalid operation attempted: height {h}cm [REJECTED]")
+            print("Security: Negative height rejected")
+            if (age < 0):
+                a = age
+                print(f"Invalid operation attempted: age {a} days [REJECTED]")
+                print("Security: Negative age rejected")
             return False
-        
         return True
 
     def print_security_state(self):
         print(f"Plant created: {self.__name}")
         print(f"Height updated: {self.__height} cm [OK]")
         print(f"Age updated: {self.__age} days [OK]")
-    
+
     plant_data = [
-    ("Rose", 25, 30),
-    ("Oak", 200, 365),
-    ("Cactus", 5, 90),
-    ("Sunflower", 80, 45),
-    ("Fern", 15, 120),
-    ("Bamboo", 150, 60),
-    ("Lavender", 30, 50),
-    ("Bonsai", 10, 500),
-    ("Lily", 40, 25),
-    ("Pine", 120, 730)
+            ("Rose", 25, 30),
+            ("Oak", 200, 365),
+            ("Cactus", 5, 90),
+            ("Sunflower", 80, 45),
+            ("Fern", 15, 120),
+            ("Bamboo", 150, 60),
+            ("Lavender", 30, 50),
+            ("Bonsai", 10, 500),
+            ("Lily", 40, 25),
+            ("Pine", 120, 730)
     ]
 
     def grow_plant(self, height):
@@ -57,12 +56,12 @@ class Plant:
         if (age < 0):
             print("Invalid age. Setting age to 0.")
             self.__age = 0
-        else:   
+        else:
             self.__age = age
 
     def get_hight(self):
         return self.__height
-    
+
     def get_age(self):
         return self.__age
 
@@ -73,19 +72,13 @@ class Plant:
             plants.append(Plant(name, height, age))
         return plants
 
+
 def main():
     print("=== Garden Security System ===\n")
-    #good plant
     plant1 = Plant("Tulip", 40, 30)
     plant1.print_security_state()
-
-    #bad plant height
-    plant2 = Plant("Daisy", -20, 15)
-    
-    #bad plant age
-    plant3 = Plant("Sunflower", 100, -5)
-
     print(f"Current plant: {plant1.get_info()}")
+
 
 if __name__ == "__main__":
     main()

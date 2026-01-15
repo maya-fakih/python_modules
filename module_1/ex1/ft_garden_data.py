@@ -12,9 +12,9 @@ def ft_garden_data():
     plants = []
 
     while (number_of_plants < 3):
-        print("You need at least 3 plants to create a garden registry.")
-        number_of_plants = int(input("Enter number of plants to register: "))
-    
+        print("You need at least 3 plants.")
+        number_of_plants = int(input("Enter number of plants: "))
+
     print(f"--- Registering {number_of_plants} plants. ---\n")
 
     for i in range(number_of_plants):
@@ -28,7 +28,10 @@ def ft_garden_data():
     print("\n=== Registered Plants ===\n")
     for i in range(number_of_plants):
         plant = plants[i]
-        print(f"{plant.name.capitalize()}: {plant.height} cm, {plant.age} days old")
+        phight = plant.height
+        page = plant.age
+        pname = plant.name.capitalize()
+        print(f"{pname}: {phight}cm, {page} days old")
 
 
 if __name__ == "__main__":
