@@ -46,12 +46,8 @@ def main():
 
     try:
         my_tomato.check_health()
-    except GardenError as e:
-        print(f"Caught a garden error: {e}")
-
-    try:
         check_tank(2)
-    except GardenError as e:
+    except WaterError as e:
         print(f"Caught a garden error: {e}")
 
     print("All custom error types work correctly!")
