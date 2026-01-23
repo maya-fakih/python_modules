@@ -14,7 +14,7 @@ def create_inventory() -> dict:
         if (len(inventory) == 0):
             raise ValueError("Empty inventory...")
     except ValueError as e:
-        raise Exception("Couldnt convert value to int")
+        raise Exception(e)
     return inventory
 
 
@@ -54,7 +54,7 @@ def inventory_stats(inventory: dict):
         if int(value) < min:
             min = int(value)
             least = key
-    
+
     print(f"Most abundant: {most} ({max} units)")
     print(f"Least abundant: {least} ({min} units)")
 
@@ -69,7 +69,7 @@ def categories(inventory: dict):
             moderate.update({key: value})
         else:
             scarce.update({key: value})
-    
+
     print(f"Moderate: {moderate}")
     print(f"Scarce: {scarce}")
 
