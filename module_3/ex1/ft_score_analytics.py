@@ -12,9 +12,8 @@ def main():
             i += 1
 
         if (len(scores) == 0):
-            print("No scores provided. Usage: python3 \
-                  ft_score_analytics.py <score1> <score2> \
-                  ...")
+            s = "python3 ft_score_analytics.py <score1> <score2> ..."
+            print(f"No scores provided. Usage: {s}")
 
         else:
             print(f"Scored Processed: {scores}")

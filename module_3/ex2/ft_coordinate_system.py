@@ -27,14 +27,15 @@ def main():
 
     p1 = (10, 20, 5)
     print(f"\nPosition created: {p0}")
-    print(f"Distance between {p0} and {p1}: {d(p0, p1)}")
+    print(f"Distance between {p0} and {p1}: {d(p0, p1):.2f}")
 
     p2 = "3, 4, 0"
     print(f"\nParsing coordinates: {p2}")
     try:
         p2 = split_to_touple(p2)
         print(f"Parsed position: {p2}")
-        print(f"Distance between {p0} and {p2}: {d(p0, p2)}")
+        dist = d(p0, p1)
+        print(f"Distance between {p0} and {p2}: {dist:.2f}")
     except Exception:
         e = "invalid literal for int() with base 10: '{item}'"
         print(f"Error parsing coordinates: {e}")
