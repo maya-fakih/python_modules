@@ -28,29 +28,33 @@ def check_tank(liters):
 def main():
     print("=== Custom Garden Errors Demo ===")
 
-    print("Testing PlantError...")
+    print("\nTesting PlantError...")
     my_tomato = Tomato(age=15)
     try:
         my_tomato.check_health()
     except PlantError as e:
         print(f"Caught PlantError: {e}")
 
-    print("Testing WaterError...")
+    print("\nTesting WaterError...")
     water_liters = 5
     try:
         check_tank(water_liters)
     except WaterError as e:
         print(f"Caught WaterError: {e}")
 
-    print("Testing catching all garden errors...")
+    print("\nTesting catching all garden errors...")
 
     try:
         my_tomato.check_health()
-        check_tank(2)
-    except WaterError as e:
+    except GardenError as e:
         print(f"Caught a garden error: {e}")
 
-    print("All custom error types work correctly!")
+    try:
+        check_tank(2)
+    except GardenError as e:
+        print(f"Caught a garden error: {e}")
+
+    print("\nAll custom error types work correctly!")
 
 
 if __name__ == "__main__":

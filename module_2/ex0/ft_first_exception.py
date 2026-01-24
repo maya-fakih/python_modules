@@ -15,13 +15,28 @@ def check_temprature(temp_str: str) -> int:
 def test_temprature_input():
     print("=== Garden Temprature Checker ===")
     print("\nTesting Temprature: 25")
-    check_temprature("25")
+    try:
+        check_temprature("25")
+    except Exception as e:
+        print(e)
+    
     print("\nTesting Temprature: abc")
-    check_temprature("abc")
+    try:
+        check_temprature("abc")
+    except Exception as e:
+        print(e)
+
     print("\nTesting Temprature: 100")
-    check_temprature("100")
+    try:
+        check_temprature("100")
+    except Exception as e:
+        print(e)
+    
     print("\nTesting Temprature: -50")
-    check_temprature("-50")
+    try:
+        check_temprature("-50")
+    except Exception as e:
+        print(e)
     print("\nAll tests completed - program didn't crash!")
 
 
