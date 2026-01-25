@@ -19,7 +19,7 @@ def test_temprature_input():
         check_temprature("25")
     except Exception as e:
         print(e)
-    
+
     print("\nTesting Temprature: abc")
     try:
         check_temprature("abc")
@@ -31,7 +31,7 @@ def test_temprature_input():
         check_temprature("100")
     except Exception as e:
         print(e)
-    
+
     print("\nTesting Temprature: -50")
     try:
         check_temprature("-50")
