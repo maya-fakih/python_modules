@@ -12,18 +12,16 @@ def cyber_archives():
     finally:
         print("STATUS: Crisis handled, system stable\n")
 
-
     classified_file = "classified_vault.txt"
     try:
         print(f"CRISIS ALERT: Attempting access to '{classified_file}'...")
         with open(classified_file) as file:
             data = file.read()
         print(data)
-    except  Exception:
+    except Exception:
         print("RESPONSE: Security protocols deny access")
     finally:
         print("STATUS: Crisis handled, security maintained\n")
-
 
     standard_file = "standard_archive.txt"
     try:
@@ -34,7 +32,7 @@ def cyber_archives():
         print("STATUS: Normal operations resumed")
     except FileNotFoundError:
         print("STATUS: file does not exist")
-    
+
     print("\nAll crisis scenarios handled successfully. Archives secure.")
 
 

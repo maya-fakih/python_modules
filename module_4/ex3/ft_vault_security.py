@@ -12,7 +12,7 @@ def vault_security():
         with open("security_protocols.txt") as file:
             print("\nSECURE PRESERVATION:")
             print(file.read())
-        
+
         print("Vault automatically sealed upon completion")
         print("\nAll vault operations completed with maximum security.")
     except Exception:
