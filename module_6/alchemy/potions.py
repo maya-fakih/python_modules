@@ -1,0 +1,29 @@
+from .elements import create_air, create_earth
+from .elements import create_fire, create_water
+
+
+def healing_potion():
+    fire = create_fire()
+    water = create_water()
+    return (f"Healing potion brewed with {fire} and {water}")
+
+
+def strength_potion():
+    earth = create_earth()
+    fire = create_fire()
+    return f"Strength potion brewed with {earth} and {fire}"
+
+
+def invisibility_potion():
+    air = create_air()
+    water = create_water()
+    return f"Invisibility potion brewed with {air} and {water}"
+
+
+def wisdom_potion():
+    fire = create_fire()
+    water = create_water()
+    earth = create_earth()
+    air = create_air()
+    all_results = f"{fire}, {water}, {earth}, {air}"
+    return f"Wisdom potion brewed with all elements: {all_results}"
