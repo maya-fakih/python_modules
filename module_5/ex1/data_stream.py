@@ -17,7 +17,7 @@ class DataStream(ABC):
                     criteria: Optional[str] = None) -> List[Any]:
         try:
             if criteria:
-                return [item for item in list if item == criteria]
+                return [item for item in data_batch if item == criteria]
             else:
                 return data_batch
         except Exception:
@@ -36,21 +36,28 @@ class SensorStream(DataStream):
 
     def process_batch(self, data_batch: List[int]) -> str:
         try:
-            for i in range(len(data_batch)):
-                self.data[i] = int(data_batch[i])
-            return f"[temp: {self.data[0]}, humidity: {self.data[1]},\
-                        pressure: {self.data[2]}]"
+            if len(data_batch)!= 3:
+                raise ValueError()
+            for item in (data_batch):
+                self.data.append(int(item))
+            return f"[temp: {data_batch[0]}, humidity: {data_batch[1]},\
+                        pressure: {data_batch[2]}]"
 
         except Exception:
             self.valid = False
             return "Invalid input..."
 
     def get_stats(self):
-        if self.valis is True:
+        if self.valid is True:
             l = len(self.data)
-            return f"{l} readings processed, avg temp: {self.data[0]}"
+            return {"readings processed": len(self.data),"avg temp": self.data[0]}
         else:
-            return "Cannot analyze invalid input"
+            return {"status": "invalid input"}
+        
+    def filter_data(self, data_batch: List[Any],
+                    criteria: Optional[str] = None) -> List[Any]:
+        if self.valid is True:
+            return[]
 
 
 class TransactionStream(DataStream):
