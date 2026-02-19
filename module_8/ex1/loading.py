@@ -11,18 +11,19 @@ def check_package(package_name: str) -> Tuple[str, str]:
         return "OK", version
     except ImportError:
         return "MISSING", None
-    # except Exception:
-    #     return "ERROR", None
+    except Exception:
+        return "ERROR", None
 
 def display_dependency_status(results: Dict) -> None:
     print("LOADING STATUS: Loading programs...")
     print("Checking dependencies:")
 
-    package_order = ['pandas', 'requests', 'matplotlib']
+    package_order = ['pandas', 'requests', 'matplotlib', 'numpy']
     descriptions = {
         'pandas': 'Data manipulation ready',
         'requests': 'Network access ready',
-        'matplotlib': 'Visualization ready'
+        'matplotlib': 'Visualization ready',
+        'numpy': 'Numerical computing ready'
     }
 
     for package in package_order:
@@ -36,7 +37,7 @@ def display_dependency_status(results: Dict) -> None:
             print(f"[{status}] {package} - NOT INSTALLED")
 
 def analyze_matrix_data() -> None:
-    print("Analyzing Matrix data...")
+    print("\nAnalyzing Matrix data...")
     
     try:
         import pandas as pd
@@ -56,7 +57,7 @@ def analyze_matrix_data() -> None:
         plt.savefig('matrix_analysis.png')
         plt.close()
         
-        print("Analysis complete!")
+        print("\nAnalysis complete!")
         print("Results saved to: matrix_analysis.png")
         
     except Exception as e:
