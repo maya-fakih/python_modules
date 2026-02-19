@@ -14,7 +14,7 @@ class ProcessingPipeline(ABC):
     @abstractmethod
     def add_stage(self, stage: ProcessingStage) -> None:
         pass
-    
+
     @abstractmethod
     def process(self, data: Any) -> Any:
         pass
@@ -27,7 +27,7 @@ class JSONAdapter(ProcessingPipeline):
 
     def add_stage(self, stage: ProcessingStage) -> None:
         self.stages.append(stage)
-    
+
     def process(self, data: Any) -> Any:
         in1 = data
         for stage in self.stages:
@@ -57,7 +57,7 @@ class StreamAdapter(ProcessingPipeline):
 
     def add_stage(self, stage: ProcessingStage) -> None:
         self.stages.append(stage)
-    
+
     def process(self, data: Any) -> Any:
         in1 = data
         for stage in self.stages:
@@ -68,7 +68,7 @@ class StreamAdapter(ProcessingPipeline):
 class NexusManager():
     def __init__(self, pipelines: List[ProcessingPipeline]):
         self.pipes = pipelines
-    
+
     def add_pipeline(self, pipeline: ProcessingPipeline) -> None:
         self.pipes.append(pipeline)
 
@@ -81,7 +81,7 @@ class NexusManager():
                 print("\nProcessing CSV data through same pipeline...")
             elif isinstance(data, list):
                 print("\nProcessing Stream data through same pipeline...")
-            
+
             # Only process with the FIRST pipeline (remove repetition)
             if self.pipes:
                 self.pipes[0].process(data)
@@ -179,7 +179,7 @@ def main():
     input_stage = InputStage()
     transform_stage = TransformStage()
     output_stage = OutputStage()
-    
+
     for pipe in manager.pipes:
         pipe.add_stage(input_stage)
         pipe.add_stage(transform_stage)
@@ -190,9 +190,9 @@ def main():
         "user,action,timestamp",
         [22, 21, 23, 22, 23]
     ]
-    
+
     manager.process_data(test_data)
-    
+
     print()
     print("=== Pipeline Chaining Demo ===")
     print("Pipeline A -> Pipeline B -> Pipeline C")
@@ -202,11 +202,11 @@ def main():
     print()
     print("=== Error Recovery Test ===")
     print("Simulating pipeline failure...")
-    
+
     error_data = {"sensor": "temp", "value": "invalid", "unit": "X"}
     if manager.pipes:
         manager.pipes[0].process(error_data)
-    
+
     print()
     print("Nexus Integration complete. All systems operational.")
 

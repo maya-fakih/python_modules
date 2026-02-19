@@ -13,7 +13,7 @@ def main():
     else:
         print("MATRIX STATUS: You're still plugged in")
         matrix_mode = False
-    
+
     python_path = sys.executable
     print(f"Current Python: {python_path}")
 

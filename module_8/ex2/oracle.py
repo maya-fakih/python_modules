@@ -14,7 +14,8 @@ def check_environment():
     if os.path.exists('.env'):
         print("[OK] .env file found")
     else:
-        print("[WARNING] .env file not found, relying on system environment variables")
+        print("[WARNING] .env file not found, relying on \
+              system environment variables")
 
 
 def check_overrides():
@@ -57,7 +58,6 @@ def main():
     pass
 
     print("\nEnvironment security check:")
-
 
     print("\nThe Oracle sees all configurations.")
     check_secrets()
